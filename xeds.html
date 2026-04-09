@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio Website</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f4f4f4;
+}
+header {
+    background: #333;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+nav {
+    background: #555;
+    padding: 10px;
+    text-align: center;
+}
+nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+section {
+    display: none;
+    padding: 20px;
+}
+.active {
+    display: block;
+}
+.card {
+    background: white;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+}
+button {
+    padding: 10px;
+    background: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+img.profile {
+    width: 150px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+}
+.name {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.course {
+    text-align: center;
+    font-size: 16px;
+    color: gray;
+    margin-bottom: 10px;
+}
+.dashboard-box {
+    font-size: 20px;
+    margin: 10px 0;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>My Portfolio</h1>
+</header>
+
+<nav>
+    <a href="#" onclick="showPage('home')">Home</a>
+    <a href="#" onclick="showPage('dashboard')">Dashboard</a>
+    <a href="#" onclick="showPage('quiz')">Quiz Upload</a>
+    <a href="#" onclick="showPage('lab')">Lab Upload</a>
+    <a href="#" onclick="showPage('exam')">Major Exam</a>
+</nav>
+
+<!-- HOME PAGE -->
+<section id="home" class="active">
+    <div class="card">
+        <h2>Profile</h2>
+        <img src="C:\\Users\\johnc\\Downloads\\661700851_831774739284712_2236243425013660891_n.jpg" class="profile">
+        <p class="name">Falcon, John Cedric S.</p>
+        <p class="course">Bachelor of Science in Computer Science</p>
+        <p><b>About Me:</b> I am a student passionate about coding.</p>
+    </div>
+
+    <div class="card">
+        <h2>Skills & Projects</h2>
+        <ul>
+            <li>HTML, C++</li>
+            <li>Java Programming</li>
+            <li>Portfolio Website</li>
+        </ul>
+    </div>
+</section>
+
+<!-- DASHBOARD -->
+<section id="dashboard">
+    <div class="card">
+        <h2>Dashboard</h2>
+        <div class="dashboard-box">Total Quiz Uploads: <span id="quizCount">0</span></div>
+        <div class="dashboard-box">Total Lab Uploads: <span id="labCount">0</span></div>
+        <div class="dashboard-box">Total Exam Uploads: <span id="examCount">0</span></div>
+    </div>
+</section>
+
+<!-- QUIZ UPLOAD -->
+<section id="quiz">
+    <div class="card">
+        <h2>Quiz Upload</h2>
+        <input type="text" id="quizTitle" placeholder="Title">
+        <input type="file">
+        <input type="file" accept="image/*">
+        <button onclick="submitQuiz()">Submit</button>
+    </div>
+</section>
+
+<!-- LAB UPLOAD -->
+<section id="lab">
+    <div class="card">
+        <h2>Lab Work Upload</h2>
+        <input type="text" id="labTitle" placeholder="Title/Description">
+        <input type="file">
+        <input type="file" accept="image/*">
+        <button onclick="submitLab()">Submit</button>
+    </div>
+</section>
+
+<!-- MAJOR EXAM -->
+<section id="exam">
+    <div class="card">
+        <h2>Major Exam Upload</h2>
+        <input type="text" id="examTitle" placeholder="Title">
+        <input type="file">
+        <input type="file" accept="image/*">
+        <button onclick="submitExam()">Submit</button>
+    </div>
+</section>
+
+<script>
+let quizCount = 0;
+let labCount = 0;
+let examCount = 0;
+
+function showPage(pageId) {
+    let sections = document.querySelectorAll("section");
+    sections.forEach(sec => sec.classList.remove("active"));
+    document.getElementById(pageId).classList.add("active");
+}
+
+function submitQuiz() {
+    quizCount++;
+    document.getElementById("quizCount").innerText = quizCount;
+    alert("Quiz uploaded successfully!");
+}
+
+function submitLab() {
+    labCount++;
+    document.getElementById("labCount").innerText = labCount;
+    alert("Lab uploaded successfully!");
+}
+
+function submitExam() {
+    examCount++;
+    document.getElementById("examCount").innerText = examCount;
+    alert("Exam uploaded successfully!");
+}
+</script>
+
+</body>
+</html>
